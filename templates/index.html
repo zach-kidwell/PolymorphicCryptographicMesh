@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Polymorphic Cryptographic Mesh</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="header">
+            <p class="eyebrow">Quantum AI Course Project</p>
+            <h1>Polymorphic Cryptographic Mesh</h1>
+            <p class="summary">
+                Security Data -> Feature Extraction -> AI Model -> Risk Prediction -> Encryption Recommendation
+            </p>
+        </section>
+
+        <section class="layout">
+            <form class="panel" method="post">
+                <h2>Encryption Risk Input</h2>
+
+                <label for="algorithm">Algorithm Name</label>
+                <select id="algorithm" name="algorithm">
+                    {% for option in ["RSA-2048", "ECC-256", "AES-256", "Kyber", "Dilithium", "SPHINCS+", "3DES"] %}
+                        <option value="{{ option }}" {% if form_values.algorithm == option %}selected{% endif %}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="age">Algorithm Age</label>
+                <input id="age" name="age" type="number" min="0" max="100" value="{{ form_values.age }}" required>
+
+                <label for="vulnerabilities">Vulnerability Count</label>
+                <input id="vulnerabilities" name="vulnerabilities" type="number" min="0" max="20" value="{{ form_values.vulnerabilities }}" required>
+
+                <label for="quantum_threat">Quantum Threat Level</label>
+                <input id="quantum_threat" name="quantum_threat" type="number" min="1" max="10" value="{{ form_values.quantum_threat }}" required>
+
+                <label for="sensitivity">Data Sensitivity Level</label>
+                <input id="sensitivity" name="sensitivity" type="number" min="1" max="10" value="{{ form_values.sensitivity }}" required>
+
+                <button type="submit">Predict Risk</button>
+            </form>
+
+            <section class="panel result-panel">
+                <h2>AI Decision Output</h2>
+
+                {% if result %}
+                    <dl class="results">
+                        <dt>Algorithm</dt>
+                        <dd>{{ result.algorithm }}</dd>
+
+                        <dt>AI Risk Prediction</dt>
+                        <dd>{{ result.risk_label }} (score {{ result.risk_score }}/3)</dd>
+
+                        <dt>Model Confidence</dt>
+                        <dd>{{ result.confidence }}%</dd>
+
+                        <dt>Recommendation</dt>
+                        <dd>{{ result.recommendation }}</dd>
+
+                        <dt>Suggested Replacement</dt>
+                        <dd>{{ result.replacement }}</dd>
+                    </dl>
+                {% else %}
+                    <p class="empty-state">Submit the form to run the AI decision model.</p>
+                {% endif %}
+            </section>
+        </section>
+    </main>
+</body>
+</html>

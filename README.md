@@ -62,7 +62,7 @@ qai6 7.0/
 ├── mesh_animation.py
 └── web_demo/
     ├── index.html
-    ├── styles.css
+    ├── qmesh-lab.css
     ├── app.js
     └── server.py
 ```

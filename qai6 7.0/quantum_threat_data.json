@@ -1,0 +1,58 @@
+[
+    {
+        "algorithm": "RSA-2048",
+        "security_level": 0,
+        "quantum_cost": 0,
+        "status": "Broken",
+        "risk": "High Risk",
+        "decay_factor": 1.0
+    },
+    {
+        "algorithm": "ECC-256",
+        "security_level": 0,
+        "quantum_cost": 0,
+        "status": "Broken",
+        "risk": "High Risk",
+        "decay_factor": 1.0
+    },
+    {
+        "algorithm": "AES-256",
+        "security_level": 5,
+        "quantum_cost": 2,
+        "status": "Safe",
+        "risk": "Low Risk",
+        "decay_factor": 0.35
+    },
+    {
+        "algorithm": "Kyber",
+        "security_level": 3,
+        "quantum_cost": 3,
+        "status": "Finalist",
+        "risk": "High Risk",
+        "decay_factor": 0.67
+    },
+    {
+        "algorithm": "Dilithium",
+        "security_level": 5,
+        "quantum_cost": 4,
+        "status": "Finalist",
+        "risk": "High Risk",
+        "decay_factor": 0.62
+    },
+    {
+        "algorithm": "SPHINCS+",
+        "security_level": 5,
+        "quantum_cost": 4,
+        "status": "Finalist",
+        "risk": "High Risk",
+        "decay_factor": 0.62
+    },
+    {
+        "algorithm": "3DES",
+        "security_level": 0,
+        "quantum_cost": 0,
+        "status": "Deprecated",
+        "risk": "High Risk",
+        "decay_factor": 0.8
+    }
+]

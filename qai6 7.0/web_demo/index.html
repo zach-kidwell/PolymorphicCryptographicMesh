@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interactive classroom demo of adaptive quantum-safe networking." />
+    <title>Q-Mesh Lab · Quantum-Safe Network Simulator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Q-Mesh Lab home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Q-Mesh <b>Lab</b></span>
+        </a>
+        <div class="topbar-center" aria-label="Simulation status">
+          <span class="status-dot"></span>
+          Simulator online
+          <span class="divider"></span>
+          Classroom environment
+        </div>
+        <button class="about-button" id="aboutButton">How it works <span>↗</span></button>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="eyebrow"><span>QUANTUM-SAFE NETWORKING</span><i></i> INTERACTIVE LAB 01</div>
+          <div class="hero-grid">
+            <div>
+              <h1>Watch a message<br />adapt to a <em>quantum threat.</em></h1>
+              <p class="hero-copy">Choose a cryptographic algorithm, send a message, and see how the AI risk classifier selects a secure route in real time.</p>
+            </div>
+            <aside class="lesson-card">
+              <span class="lesson-number">TODAY'S CONCEPT</span>
+              <strong>Adaptive cryptography</strong>
+              <p>A secure system should not use the same defense for every threat.</p>
+              <button id="openLesson">View learning goals <span>→</span></button>
+            </aside>
+          </div>
+        </section>
+
+        <section class="lab" aria-label="Quantum secure network simulator">
+          <div class="panel controls-panel">
+            <div class="panel-heading">
+              <span class="step-number">01</span>
+              <div><h2>Configure transmission</h2><p>Define the payload and security context.</p></div>
+            </div>
+
+            <label for="message">Message payload</label>
+            <div class="message-field">
+              <textarea id="message" maxlength="80" rows="3">Meet me in the quantum lab at 14:30.</textarea>
+              <span id="charCount">38 / 80</span>
+            </div>
+
+            <label for="algorithm">Current encryption algorithm</label>
+            <div class="select-wrap">
+              <select id="algorithm">
+                <option value="RSA-2048">RSA-2048</option>
+                <option value="ECC-256">ECC-256</option>
+                <option value="AES-256">AES-256</option>
+                <option value="Kyber">ML-KEM (Kyber)</option>
+                <option value="Dilithium">ML-DSA (Dilithium)</option>
+                <option value="SPHINCS+">SLH-DSA (SPHINCS+)</option>
+              </select>
+            </div>
+
+            <div class="risk-card" id="riskCard">
+              <div class="risk-icon" aria-hidden="true">!</div>
+              <div><small>AI THREAT ASSESSMENT</small><strong id="riskLabel">High quantum risk</strong><p id="riskReason">Shor's algorithm can factor RSA keys efficiently.</p></div>
+              <span class="confidence" id="confidence">98%</span>
+            </div>
+
+            <button class="send-button" id="sendButton"><span>Run secure transmission</span><b>⌁</b></button>
+            <p class="privacy-note"><span>●</span> Simulation only · No data leaves this browser</p>
+          </div>
+
+          <div class="panel network-panel">
+            <div class="network-header">
+              <div>
+                <span class="step-number">02</span>
+              <div><h2>Adaptive security response</h2><p id="networkSubtitle">The nodes are logical security relays—not geographic locations.</p></div>
+              </div>
+              <div class="legend"><span><i class="node-key"></i> Node</span><span><i class="route-key"></i> Secure path</span></div>
+            </div>
+
+            <div class="network-stage" id="networkStage">
+              <canvas id="networkCanvas" aria-label="Animated network map showing message route"></canvas>
+              <div class="mode-pill" id="modePill"><i></i> Standby mode</div>
+              <div class="source-label">SENDER<br /><b>ALICE'S DEVICE</b></div>
+              <div class="target-label">RECIPIENT<br /><b>BOB'S DEVICE</b></div>
+              <div class="packet" id="packet" aria-hidden="true"><span>✦</span></div>
+              <div class="hop-note" id="hopNote"><small>CURRENT ACTION</small><strong>Waiting for a message</strong><span>Choose an algorithm, then run the transmission.</span></div>
+            </div>
+
+            <div class="network-footer">
+              <div><small>SECURITY DECISION</small><strong id="routeValue">Awaiting threat assessment</strong></div>
+              <div><small>EST. LATENCY</small><strong id="latencyValue">—</strong></div>
+              <div><small>KEY MUTATIONS</small><strong id="mutationsValue">—</strong></div>
+              <div><small>STATUS</small><strong class="ready" id="statusValue">Ready</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="explain-strip">
+          <div class="explain-title"><span>03</span><div><small>UNDER THE HOOD</small><h2>One transmission, three intelligent decisions.</h2></div></div>
+          <div class="decision"><span class="decision-icon">◎</span><div><small>CLASSIFY</small><strong>AI estimates the threat</strong><p>A decision tree compares the algorithm's security level, quantum cost, and standards status.</p></div></div>
+          <div class="decision"><span class="decision-icon">⌁</span><div><small>ADAPT</small><strong>The defense matches the risk</strong><p>Lower-risk algorithms use the simple channel. Vulnerable algorithms trigger layered mesh protection.</p></div></div>
+          <div class="decision"><span class="decision-icon">✦</span><div><small>PROTECT</small><strong>Keys change at every relay</strong><p>Even if one relay is observed, the same key is not exposed across the entire journey.</p></div></div>
+        </section>
+      </main>
+
+      <footer><span>Q-MESH LAB · EDUCATIONAL PROTOTYPE</span><span>Built from the Polymorphic Cipher Mesh research demo</span><span>v7.0</span></footer>
+    </div>
+
+    <dialog id="lessonDialog">
+      <button class="dialog-close" id="closeDialog" aria-label="Close dialog">×</button>
+      <span class="dialog-kicker">5-MINUTE LESSON</span>
+      <h2>What should you notice?</h2>
+      <ol>
+        <li><span>01</span><div><strong>Risk depends on the attacker.</strong><p>RSA is strong against classical computers, but vulnerable to a large fault-tolerant quantum computer running Shor's algorithm.</p></div></li>
+        <li><span>02</span><div><strong>The system adapts automatically.</strong><p>A high-risk classification activates the polymorphic mesh; a lower-risk result can stay on the direct classical channel.</p></div></li>
+        <li><span>03</span><div><strong>Defense happens in layers.</strong><p>Route selection, fresh randomness, and per-hop key mutation work together. No single technique carries the whole security model.</p></div></li>
+      </ol>
+      <p class="caveat"><b>Important:</b> This is a conceptual simulator, not a production security product. “Quantum-inspired” routing does not itself guarantee quantum security.</p>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>

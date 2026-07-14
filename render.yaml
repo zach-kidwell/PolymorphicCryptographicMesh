@@ -1,8 +1,17 @@
 services:
   - type: web
     name: polymorphic-cryptographic-mesh
-    runtime: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn main:app
-    healthCheckPath: /
+    runtime: static
+    buildCommand: echo "Static classroom demo ready"
+    staticPublishPath: "./qai6 7.0/web_demo"
+    autoDeployTrigger: commit
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
